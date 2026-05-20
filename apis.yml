@@ -4,6 +4,8 @@ url:
 modified: '2026-03-21'
 apis: []
 common:
+  - type: GitHubOrganization
+    url: https://github.com/wwgrainger
   - type: Website
     url: https://www.ww-grainger.com
 description: >-
