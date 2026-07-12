@@ -6,6 +6,8 @@ url:
 modified: '2026-03-21'
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/ww-grainger-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/wwgrainger
   - type: Website
