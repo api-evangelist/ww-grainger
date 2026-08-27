@@ -1,4 +1,5 @@
 aid: ww-grainger
+name: "W. W. Grainger"
 specificationVersion: '0.23'
 accessModel:
   pricing: unknown
