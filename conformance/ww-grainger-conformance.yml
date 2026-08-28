@@ -1,0 +1,99 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  Standards claims assembled 2026-08-28 from live probes of Grainger's own hosts plus published
+  trading-partner and procurement-platform integration guides. NO Grainger-published implementation
+  guide, EDI companion document or PunchOut specification was publicly reachable, so every entry below
+  records where its evidence actually came from.
+contract_evidence: none
+contract_evidence_note: >-
+  Grainger publishes no OpenAPI, AsyncAPI, GraphQL SDL, WSDL or .proto that a machine can fetch. The
+  domain-standard signatures recorded here are therefore attested by integration partners and by
+  Grainger's own marketing of the eProcurement channel, NOT read out of a Grainger contract. They are
+  recorded as third-party attestation and must not be read as contract-level conformance.
+standards:
+  - id: x12
+    name: ANSI ASC X12 EDI (version 4010)
+    conforms: true
+    evidence_type: third-party-attestation
+    detail: >-
+      Grainger trades over ANSI ASC X12 4010 with named Grainger-specific message maps -
+      Grainger.I.PO.X.4010.R1, Grainger.O.OA.X.4010.R1, Grainger.O.SH.X.4010.R1,
+      Grainger.O.IV.X.4010.R1 and Grainger.O.FA.X.4010.R1 - covering transaction sets 850 Purchase
+      Order, 855 Purchase Order Acknowledgment, 856 Ship Notice/Manifest, 810 Invoice, 820 Remittance
+      Advice, 860 PO Change and 997 Functional Acknowledgment, with 210 Motor Carrier Freight Details
+      also supported.
+    evidence:
+      - url: https://www.truecommerce.com/trading-partner/grainger/
+        status: 200
+        note: EDI VAN trading-partner page enumerating Grainger's X12 4010 maps and transaction sets
+  - id: edifact
+    name: UN/EDIFACT
+    conforms: unverified
+    evidence_type: third-party-attestation
+    detail: >-
+      The same trading-partner page states UN/EDIFACT and XML syntax are supported alongside X12, but
+      names no EDIFACT message types for Grainger specifically. Recorded as unverified rather than true.
+    evidence:
+      - url: https://www.truecommerce.com/trading-partner/grainger/
+        status: 200
+  - id: cxml-punchout
+    name: cXML PunchOut (Commerce XML)
+    conforms: true
+    evidence_type: third-party-attestation
+    detail: >-
+      Grainger operates a PunchOut catalog that procurement platforms connect to using cXML setup
+      values Grainger issues per customer - From/Sender NetworkID, From ID Domain, shared secret, and
+      separate test and production order-posting URLs. The credentials and URLs are supplied by a
+      Grainger Account Representative and are not published, so no endpoint is recorded here.
+    evidence:
+      - url: https://success.procurify.com/en/articles/9001922-grainger-punchout-overview
+        status: 200
+        note: >-
+          Procurement-platform setup guide listing the exact cXML PunchOut values Grainger issues and
+          the 4-6 week account-rep onboarding
+  - id: oci
+    name: SAP Open Catalog Interface (OCI)
+    conforms: unverified
+    evidence_type: none
+    detail: >-
+      Grainger markets integration with SAP, Ariba, Coupa, Jaggaer, Oracle and GHX, several of which
+      consume OCI, but no source reachable in this pass names OCI for Grainger specifically. Not claimed.
+    evidence: []
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: unverified
+    evidence_type: probe
+    detail: >-
+      No OAuth metadata is served. /.well-known/oauth-authorization-server and
+      /.well-known/oauth-protected-resource return 404 on api.grainger.com and a soft-404 HTML shell on
+      www.grainger.com. Whatever api.grainger.com uses to authenticate is not discoverable anonymously.
+    evidence:
+      - url: https://api.grainger.com/.well-known/oauth-authorization-server
+        status: 404
+      - url: https://api.grainger.com/.well-known/oauth-protected-resource
+        status: 404
+  - id: rfc9457
+    name: RFC 9457 Problem Details
+    conforms: unverified
+    evidence_type: none
+    detail: No Grainger contract or error reference is public, so the error envelope cannot be determined.
+    evidence: []
+  - id: rfc9116
+    name: RFC 9116 security.txt
+    conforms: false
+    evidence_type: probe
+    detail: >-
+      No security.txt is served on any Grainger host. api.grainger.com and inventory.grainger.com
+      return a real 404; www.grainger.com returns its 18,271-byte soft-404 shell, which is not a document.
+    evidence:
+      - url: https://api.grainger.com/.well-known/security.txt
+        status: 404
+      - url: https://inventory.grainger.com/.well-known/security.txt
+        status: 404
+certifications: []
+certifications_note: >-
+  No Grainger trust center, compliance page or named certification (SOC 2, ISO 27001, PCI DSS, HIPAA,
+  FedRAMP) was reachable. trust.grainger.com, status.grainger.com and security.grainger.com do not
+  resolve in DNS, and probe-security-programs.py returned vdp=none trust=none. No Compliance or
+  TrustCenter pointer is emitted.

@@ -1,0 +1,22 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  Searched for published Grainger API rate limits and probed the only reachable Grainger API host
+  (api.grainger.com) anonymously on 2026-08-28.
+limit_count: 0
+rate_limits: []
+headers: []
+note: >-
+  No rate limit, quota, throttle or backoff guidance is published by Grainger anywhere reachable, and
+  none could be observed at runtime: api.grainger.com answers anonymous requests with either a bare
+  404 (istio-envoy, zero-length body) or a 503 ACCESS DENIED page, so no successful response carrying
+  RateLimit-*, X-RateLimit-* or Retry-After headers was ever returned. The EDI and cXML PunchOut
+  channels are batch/session protocols provisioned per trading partner and carry no documented
+  request-rate contract. An honest zero, not an omission.
+evidence:
+  - url: https://api.grainger.com/
+    status: 404
+    note: istio-envoy, zero-length body, no rate-limit headers
+  - url: https://api.grainger.com/swagger.json
+    status: 503
+    note: Grainger "ACCESS DENIED" page, no rate-limit headers

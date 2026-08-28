@@ -1,0 +1,67 @@
+# W. W. Grainger
+
+> W. W. Grainger, Inc. (NYSE: GWW) is a Fortune 500 broad-line distributor of maintenance, repair and
+> operating (MRO) products serving businesses and institutions across North America, Japan and the
+> United Kingdom. Grainger has NO public API: there is no developer portal, no published OpenAPI,
+> AsyncAPI, GraphQL SDL, WSDL or .proto, no SDK on any package registry, no MCP server and no A2A
+> agent card. Its system-to-system commerce runs through account-provisioned eProcurement channels.
+
+<!--
+generated: 2026-08-28
+method: generated
+source: apis.yml + live probes performed by the API Evangelist enrichment pipeline on 2026-08-28
+This file is written BY API EVANGELIST, not by W. W. Grainger. It is a third-party summary of a
+publicly observable API surface, not a Grainger-published document.
+-->
+
+## What an agent can and cannot do here
+
+- There is no callable Grainger API for an agent to use. Do not construct or guess an endpoint.
+- The only Grainger API host discovered is `https://api.grainger.com`. It is a live gateway
+  (Akamai in front of istio-envoy) and it is closed. Every path returns a bare 404 except
+  `/swagger.json` and `/swagger-ui.html`, which return HTTP 503 with a Grainger-branded page reading
+  "ACCESS DENIED - Log onto the Grainger Network ... please ensure you are connected to the Grainger
+  network through a secure VPN connection", contact `eSA_App_Support@grainger.com`. A Swagger surface
+  therefore EXISTS behind the corporate network; it is simply not published.
+- `https://www.grainger.com` serves automated clients an identical 18,271-byte soft-404 page titled
+  "Whoops, we couldn't find that." at every path, including `/` and `/robots.txt`, behind DataDome
+  (`x-datadome: protected`). Nothing on the storefront is machine-readable to an agent.
+
+## Integration channels Grainger actually offers
+
+- eProcurement / PunchOut - Grainger operates a PunchOut catalog consumed by Ariba, Coupa, Jaggaer,
+  SAP, Oracle and GHX. Setup uses cXML values a Grainger Account Representative issues per customer:
+  From/Sender NetworkID, From ID Domain, shared secret, and separate test and production order-posting
+  URLs. Stated onboarding is 4-6 weeks. None of these URLs is public.
+- EDI - ANSI ASC X12 version 4010, with Grainger-specific maps (Grainger.I.PO.X.4010.R1,
+  Grainger.O.OA.X.4010.R1, Grainger.O.SH.X.4010.R1, Grainger.O.IV.X.4010.R1, Grainger.O.FA.X.4010.R1)
+  covering 850, 855, 856, 810, 820, 860, 997 and 210. Established through a trading-partner agreement.
+- KeepStock - Grainger's managed inventory program, integrable with the customer's eProcurement system.
+  Its customer application lives at `https://inventory.grainger.com` (login required); a public HTML
+  user guide is served at `https://inventory.grainger.com/prod01/docs/SpotBuy/SpotBuy.htm`. It is
+  end-user documentation for a web application, not an API reference.
+
+## Verified links
+
+- Website: https://www.grainger.com (HTTP 200, but soft-404 shell to non-browser clients)
+- API gateway: https://api.grainger.com (HTTP 404 anonymous; /swagger.json HTTP 503 ACCESS DENIED)
+- GitHub organization: https://github.com/wwgrainger (HTTP 200 - six repositories, all forks of
+  third-party ML/search infrastructure; no SDK and no API specification)
+- KeepStock / Inventory Solutions user guide: https://inventory.grainger.com/prod01/docs/SpotBuy/SpotBuy.htm (HTTP 200)
+- Careers: https://jobs.grainger.com (HTTP 200)
+
+## Artifacts in this profile
+
+- security/ww-grainger-domain-security.yml - TLS 1.3, HSTS max-age 63072000, SPF present, DMARC p=quarantine, no DNSSEC, no CAA
+- well-known/ww-grainger-well-known.yml - 24 probes across 3 hosts, zero documents served
+- conformance/ww-grainger-conformance.yml - X12 4010 and cXML PunchOut, attested by integration partners, not by a Grainger contract
+- packages/ww-grainger-packages.yml - npm, PyPI, RubyGems, crates.io and GitHub swept; zero first-party packages
+- plans/ww-grainger-plans-pricing.yml - no API plans published
+- rate-limits/ww-grainger-rate-limits.yml - no rate limits published or observable
+
+## What Grainger would need to publish to become agent-addressable
+
+1. An OpenAPI for the product, availability, pricing and order surfaces already behind api.grainger.com.
+2. A public developer page and reference, with credential issuance kept behind the account motion.
+3. A cXML PunchOut and X12 4010 companion guide at a stable public URL.
+4. `/.well-known/security.txt` and `/.well-known/api-catalog` on grainger.com.

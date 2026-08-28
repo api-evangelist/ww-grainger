@@ -1,0 +1,103 @@
+generated: '2026-08-28'
+method: probed
+source: >-
+  Live anonymous HTTP probes of /.well-known/* on every Grainger host discovered in this pass
+  (www.grainger.com, api.grainger.com, inventory.grainger.com), 2026-08-28.
+note: >-
+  No /.well-known document of any kind is served by Grainger. www.grainger.com answers EVERY
+  path — including / and /robots.txt — with an identical 18,271-byte HTML page titled "Whoops,
+  we couldn't find that." behind a DataDome edge (response header `x-datadome: protected`), so
+  the 200s below are a soft-404/bot-block shell, NOT documents. api.grainger.com returns a true
+  404 (istio-envoy, zero-length body) on every .well-known path, and inventory.grainger.com
+  returns an IIS 404 page. No WellKnown, SecurityTxt or APICatalog pointer is emitted, because
+  nothing was served.
+hosts:
+  - host: www.grainger.com
+    edge: "Akamai + DataDome (x-datadome: protected)"
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        note: html-shell soft-404 (18271 bytes) - Grainger 'Whoops, we could not find that.' page, not a document
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        note: html-shell soft-404 — not a document
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        note: html-shell soft-404 — not a document
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        file: null
+        note: html-shell soft-404 — not a document
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        note: html-shell soft-404 — not a document
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        file: null
+        note: html-shell soft-404 — not a document
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        note: html-shell soft-404 — not an AgentCard; rejected per the SPA-catch-all rule
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        note: html-shell soft-404 — not an AgentCard; rejected per the SPA-catch-all rule
+  - host: api.grainger.com
+    edge: "Akamai -> istio-envoy"
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: inventory.grainger.com
+    edge: Microsoft IIS
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null

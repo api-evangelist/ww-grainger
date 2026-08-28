@@ -3,21 +3,34 @@ name: "W. W. Grainger"
 specificationVersion: '0.23'
 accessModel:
   pricing: unknown
-  onboarding: unknown
+  onboarding: sales
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  label: Gated
+  confidence: medium
+  source:
+    - https://api.grainger.com/swagger.json
+    - https://success.procurify.com/en/articles/9001922-grainger-punchout-overview
+  generated: '2026-08-28'
+  method: probed
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ww-grainger.png
 tags:
   - Fortune 500
-url: 
+  - Industrial Supply
+  - MRO
+  - Distribution
+  - B2B eCommerce
+  - Procurement
+  - Supply Chain
+  - EDI
+url: >-
   https://raw.githubusercontent.com/api-evangelist/ww-grainger/refs/heads/main/apis.yml
-modified: '2026-03-21'
+created: '2026-03-21'
+modified: '2026-08-28'
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com
 apis: []
 common:
   - type: DomainSecurity
@@ -25,8 +38,49 @@ common:
   - type: GitHubOrganization
     url: https://github.com/wwgrainger
   - type: Website
-    url: https://www.ww-grainger.com
+    url: https://www.grainger.com
+  - type: Conformance
+    url: conformance/ww-grainger-conformance.yml
+  - type: LLMsTxt
+    url: llms/ww-grainger-llms.txt
+  - type: Plans
+    url: plans/ww-grainger-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ww-grainger-rate-limits.yml
 description: >-
-  W. W. Grainger is a leading broad line distributor of maintenance, repair, and operating
-  products serving businesses and institutions throughout North America, Japan, the
-  United Kingdom, and Europe.
+  W. W. Grainger, Inc. (NYSE: GWW) is a Fortune 500 broad-line distributor of maintenance,
+  repair and operating (MRO) products serving businesses and institutions across North America,
+  Japan and the United Kingdom through roughly 331 branches, 34 distribution centers and its
+  digital channels. Its system-to-system commerce runs through eProcurement rather than a public
+  developer program: PunchOut catalogs into Ariba, Coupa, Jaggaer, SAP, Oracle and GHX, ANSI ASC
+  X12 4010 EDI for purchase orders, acknowledgments, ship notices and invoices, and the KeepStock
+  inventory-management program. Grainger operates an API gateway at api.grainger.com, but its
+  Swagger surface answers anonymous callers with an ACCESS DENIED page requiring the Grainger
+  corporate network, and integration credentials are issued only by a Grainger account
+  representative, so no public API contract or reference is available to evaluate.
+x-enrichment:
+  date: '2026-08-28'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Grainger runs a live API gateway at api.grainger.com whose only routed documentation path,
+    /swagger.json, answers anonymous callers with HTTP 503 "ACCESS DENIED - Log onto the Grainger
+    Network ... through a secure VPN connection", and its eProcurement PunchOut and X12 4010 EDI
+    credentials are issued only by a Grainger account representative over a stated 4-6 week
+    onboarding, so no contract or reference exists outside an active customer agreement.
+  evidence:
+    - url: https://api.grainger.com/swagger.json
+      status: 503
+    - url: https://api.grainger.com/swagger-ui.html
+      status: 503
+    - url: https://api.grainger.com/openapi.json
+      status: 404
+    - url: https://api.grainger.com/.well-known/api-catalog
+      status: 404
+    - url: https://success.procurify.com/en/articles/9001922-grainger-punchout-overview
+      status: 200
+  checked: '2026-08-28'

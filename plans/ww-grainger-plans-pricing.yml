@@ -1,0 +1,28 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  Searched for a Grainger developer/API pricing or plans page 2026-08-28. No developer plan surface
+  exists: api.grainger.com is the only API host and it is closed to anonymous callers, and the
+  eProcurement / PunchOut / EDI / KeepStock integration channel is provisioned through a Grainger
+  account representative rather than sold as a self-service API tier.
+plan_count: 0
+plans: []
+note: >-
+  Grainger publishes no API plans, no developer pricing page and no self-service sign-up for an API.
+  Integration is not a metered product: a customer contracts a Grainger account, and their account
+  representative issues PunchOut credentials (NetworkID, From ID Domain, shared secret, test and
+  production posting URLs) or an EDI trading-partner setup over a stated 4-6 week onboarding, at no
+  separately published price. Product pricing on grainger.com is account-specific and negotiated, and
+  the site itself is closed to our crawler, so no tier, quota or overage figure could be observed.
+evidence:
+  - url: https://api.grainger.com/swagger.json
+    status: 503
+    note: Grainger "ACCESS DENIED / Log onto the Grainger Network" page - no plan or pricing surface
+  - url: https://success.procurify.com/en/articles/9001922-grainger-punchout-overview
+    status: 200
+    note: >-
+      Third-party procurement-platform guide documenting that Grainger PunchOut credentials are
+      supplied by a Grainger Account Representative over a 4-6 week setup, with no published price
+  - url: https://www.grainger.com/
+    status: 200
+    note: soft-404 shell behind DataDome - grainger.com serves our crawler no page content at any path

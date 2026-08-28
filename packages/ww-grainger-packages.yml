@@ -1,0 +1,40 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  Unauthenticated registry sweeps 2026-08-28 - registry.npmjs.org search "grainger",
+  pypi.org/pypi/{grainger,grainger-api,pygrainger}/json, rubygems.org/api/v1/search.json?query=grainger,
+  crates.io/api/v1/crates?q=grainger, plus github.com/wwgrainger (the org named in apis.yml).
+package_count: 0
+official_package_count: 0
+packages: []
+note: >-
+  W. W. Grainger publishes no first-party client library on any public package registry. npm search
+  returns only @jjgrainger/backpack (an unrelated personal package by a different author); PyPI returns
+  404 for grainger, grainger-api and pygrainger; RubyGems and crates.io return empty result sets. The
+  wwgrainger GitHub org (https://github.com/wwgrainger, HTTP 200) holds six repositories and all of them
+  are forks of third-party ML/search infrastructure - mlflow_backend, onyx, solr, solr-operator,
+  triton_python_backend_mock_utils, tritonserver-buildkit - with no SDK, no client library and no API
+  specification among them. Grainger's system-to-system integration is delivered as EDI mapping and
+  cXML PunchOut configuration provisioned by an account representative, not as a downloadable SDK, so
+  there is nothing to record here and no SDKs pointer is emitted.
+registries_checked:
+  - registry: npm
+    url: https://registry.npmjs.org/-/v1/search?text=grainger
+    status: 200
+    first_party_hits: 0
+  - registry: pypi
+    url: https://pypi.org/pypi/grainger/json
+    status: 404
+    first_party_hits: 0
+  - registry: rubygems
+    url: https://rubygems.org/api/v1/search.json?query=grainger
+    status: 200
+    first_party_hits: 0
+  - registry: crates.io
+    url: https://crates.io/api/v1/crates?q=grainger
+    status: 200
+    first_party_hits: 0
+  - registry: github
+    url: https://github.com/wwgrainger
+    status: 200
+    first_party_hits: 0
