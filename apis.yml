@@ -36,6 +36,8 @@ tags:
   - Supply Chain
   - EDI
 url: >-
+x-api-posture: no-product-api
+x-api-posture-basis: observed
   https://raw.githubusercontent.com/api-evangelist/ww-grainger/refs/heads/main/apis.yml
 created: '2026-03-21'
 modified: '2026-08-28'
