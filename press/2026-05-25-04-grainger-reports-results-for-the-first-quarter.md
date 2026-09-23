@@ -1,7 +1,9 @@
 ---
 title: GRAINGER REPORTS RESULTS FOR THE FIRST QUARTER ...
 url: https://pressroom.grainger.com/news/press-release-details/2025/GRAINGER-REPORTS-RESULTS-FOR-THE-FIRST-QUARTER-2025/default.aspx
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"W.W. Grainger" press release artificial intelligence'
 position: 4
 source: serpapi-google
