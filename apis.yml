@@ -40,12 +40,14 @@ x-api-posture: no-product-api
 x-api-posture-basis: observed
   https://raw.githubusercontent.com/api-evangelist/ww-grainger/refs/heads/main/apis.yml
 created: '2026-03-21'
-modified: '2026-08-28'
+modified: '2026-10-06'
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
 apis: []
 common:
+  - url: https://www.grainger.com/blog/
+    type: Blog
   - type: DomainSecurity
     url: security/ww-grainger-domain-security.yml
   - type: GitHubOrganization
