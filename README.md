@@ -1,4 +1,4 @@
-# W.W. Grainger (ww-grainger)
+# W. W. Grainger
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,35 +64,93 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-W.W. Grainger is a Fortune 500 company. This repository captures the APIs, developer tools, and machine-readable API artifacts for W.W. Grainger.
+W. W. Grainger, Inc. (NYSE: GWW) is a Fortune 500 broad-line distributor of maintenance, repair and operating (MRO) products serving businesses and institutions across North America, Japan and the United Kingdom through roughly 331 branches, 34 distribution centers and its digital channels. Its system-to-system commerce runs through eProcurement rather than a public developer program: PunchOut catalogs into Ariba, Coupa, Jaggaer, SAP, Oracle and GHX, ANSI ASC X12 4010 EDI for purchase orders, acknowledgments, ship notices and invoices, and the KeepStock inventory-management program. Grainger operates an API gateway at api.grainger.com, but its Swagger surface answers anonymous callers with an ACCESS DENIED page requiring the Grainger corporate network, and integration credentials are issued only by a Grainger account representative, so no public API contract or reference is available to evaluate.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/ww-grainger/refs/heads/main/apis.yml)
+**Areas:** Fortune 500 · Industrial Supply · MRO · Distribution · B2B eCommerce · Procurement · Supply Chain · EDI
 
-## Scope
+## W. W. Grainger on APIs.io
 
-- **Type:** Contract
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for W. W. Grainger is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ww-grainger/](https://apis.io/providers/ww-grainger/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### Published properties
 
- - Fortune 500
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### Security (1)
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-03-21
+Authentication, trust centre, and vulnerability disclosure.
 
-## APIs
+- [Ww Grainger Domain Security](https://apis.io/security/ww-grainger/ww-grainger-domain-security/)
 
-No public APIs have been documented yet. Contributions welcome.
+#### Plans and pricing (1)
 
-## Common Properties
+Published plans, tiers and prices.
 
-- [Website](https://www.ww-grainger.com)
+- [Ww Grainger Plans Pricing](https://apis.io/plans/ww-grainger/ww-grainger-plans-pricing/)
 
-## Maintainers
+#### Rate limits (1)
 
-**FN:** API Evangelist
+Published request limits.
 
-**Email:** info@apievangelist.com
+- [Ww Grainger Rate Limits](https://apis.io/rate-limits/ww-grainger/ww-grainger-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.grainger.com)
+- [Blog](https://www.grainger.com/blog/)
+- [GitHub](https://github.com/wwgrainger)
+
+## API Evangelist rating
+
+**Kin Score 7.9** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 2.4 |
+| Access clarity | 0.0 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ww-grainger/](https://apis.io/providers/ww-grainger/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for W. W. Grainger: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ww-grainger/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
